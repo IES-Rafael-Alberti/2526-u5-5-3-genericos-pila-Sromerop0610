@@ -47,6 +47,25 @@ class Pila<T> : Iterable<T> {
     }
 }
 
+fun <T> reverse(lista: List<T>): List<T> {
+
+    val pila = Pila<T>()
+
+    val iterator = lista.iterator()
+
+    while (iterator.hasNext()) {
+        pila.push(iterator.next())
+    }
+
+    val resultado = mutableListOf<T>()
+
+    while (!pila.isEmpty()) {
+        resultado.add(pila.pop())
+    }
+
+    return resultado
+}
+
 fun main() {
     val numbers = listOf("one", "two", "three", "four")
     val numbersRev = reverse(numbers)
